@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock-paper-scissors</title>
+</head>
+<style>
+  *{
+    padding: 0;margin: 0;
+  }
+  body{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    background-color: #181818;
+    color:  #FAF3E0;
+    
+    
+  }
+  .header{
+    margin-top: 50px;
+     position: relative;
+      justify-content: center;
+      align-items: center;
+      display: block;
+      text-align: center;
+  }
+  nav{
+      justify-content: space-around;
+      text-align: center;
+      display: block;
+      position: relative;
+      font-size: 25px;
+      align-items: center;
+      
+  }
+  .buttons{
+    text-align: center;
+    margin-top: 120px;
+  }
+   img{
+    height: 50px;
+    background-color: transparent;
+   }
+  
+  .b1, .b2, .b3{
+    border-radius: 50px;
+     border: 3px solid black;
+     margin-bottom: 30px;
+     margin-left: 20px;
+     
+  }
+
+  .b4 , .b5 {
+    width: 90px;
+    height: 25px;
+    border-radius: 10px;
+    border: 0px;
+  
+  }
+  .Js_result{
+    margin-bottom: 40px;
+  }
+  .js_score{
+     margin-bottom: 40px;
+  }
+  
+
+
+</style>
+<body>
+
+
+  <header>
+
+  <div class="header">Ready to Settle This?</div>
+
+    <nav>
+      <div class="nav\">The Ultimate Hand Game Showdown</div>
+    </nav>
+
+  </header>
+
+  <div class="buttons">
+
+      <button class="b1"
+      onclick="
+      UserMove = 'Rock';
+      Computerchoises();
+      UserchoiseRock();
+      "><img class="rock" src="images/rock pic.png" alt=""></button>
+
+      <button class="b2"
+      onclick="
+       UserMove = 'Paper';
+       Computerchoises();
+       UserchoisePaper();
+      "><img class="paper" src="images/paper.png" alt=""></button>
+
+      <button class="b3"
+      onclick="
+       UserMove = 'Scissors';
+       Computerchoises();
+       UserchoiseScissors();
+      "><img class="scissors" src="images/scissors.png" alt=""></button>
+
+     
+      <br>
+
+      <div class="Js_result">
+        Let's play
+      </div>
+
+      <div class="js_score">
+        Score 
+      </div>
+
+      <button class="b4"
+      onclick="showScore();
+      ">Score</button>
+
+      <button class="b5"
+      onclick="ResetScore();
+      ">Reset-Score</button>
+  </div>
+</body>
+<script>
+
+  let compMove;
+  let UserMove;
+  let result;
+  let Score ={win : 0 , lose:0 , draw:0};
+
+
+  function Computerchoises()
+  {
+    compMove= Math.random();
+ 
+    if(compMove <= 0.3){
+      console.log(compMove);
+      compMove = 'Rock';
+      console.log(compMove);
+    }
+    else if (compMove > 0.3 && compMove <= 0.7){
+       console.log(compMove);
+      compMove = 'Paper';
+      console.log(compMove);
+    }
+    else{
+       console.log(compMove);
+       compMove = 'Scissors';
+       console.log(compMove);
+    }}
+
+    function UserchoiseRock()
+    {
+       if (UserMove === 'Rock' && compMove === 'Rock') {
+        result = 'draw';
+        console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
+       }
+       else if (UserMove === 'Rock' && compMove === 'Paper'){
+        result = 'lose';
+        console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
+       }
+       else {
+        result = 'win';
+        console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
+       }
+       Result();
+    }
+
+    function UserchoisePaper()
+    {
+       if (UserMove === 'Paper' && compMove === 'Paper'){
+        result = 'draw';
+        console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
+       }
+       else if (UserMove === 'Paper' && compMove === 'Scissors'){
+        result = 'lose';
+        console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
+       }
+       else{
+        result = 'win';
+        console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
+       }
+       Result();
+    }
+
+     function UserchoiseScissors()
+    {
+       if (UserMove === 'Scissors' && compMove === 'Scissors'){
+        result = 'draw';
+        console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
+       }
+       else if (UserMove === 'Scissors' && compMove === 'Rock'){
+        result = 'lose';
+        console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
+       }
+       else {
+        result = 'win';
+        console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
+       }
+       Result();
+    }
+    
+    function Result()
+    { 
+      if (result === 'win'){
+        Score.win++;
+        result = 'null'
+      }
+      else if(result === 'lose'){
+        Score.lose++;
+        result = 'null'
+      }
+      else if(result === 'draw'){
+        Score.draw++;
+        result = 'null'
+      }
+           updateScore();
+
+    }
+    
+    function showScore(){
+       let savedScore = localStorage.getItem('Score');
+  if(savedScore)  {
+      Score = JSON.parse(savedScore);
+  }
+  return console.log(`The result is: \n wins: ${Score.win} \n lose: ${Score.lose} \n Draw: ${Score.draw}`);
+    }
+
+ function updateScore() {
+      localStorage.setItem('Score',JSON.stringify(Score));
+   }
+
+   function ResetScore() {
+    localStorage.removeItem('Score');
+    Score.win = 0 ;
+    Score.lose = 0;
+    Score.draw = 0;
+    updateScore();
+    console.log('score reset');
+   }
+
+  /* function dispalyresult(){
+   document.querySelector('.Js_result')
+    .innerHTML = result;
+   }*/
+
+   function dispalyscore(){  
+    document.querySelector('.js_score')
+    .innerHTML = showScore();
+   }
+    
+
+</script>
+</html>
