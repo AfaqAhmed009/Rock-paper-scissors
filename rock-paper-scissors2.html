@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rock-paper-scissors</title>
+<link rel="stylesheet" href="rock-paper-scissors.css">
+</head>
+  <body>
+    
+      <header>
+         <div class="header">Ready to Settle This?</div>
+
+          <nav>
+          <div class="nav\">The Ultimate Hand Game Showdown</div>
+          </nav>
+      </header>
+
+      <div class="buttons">
+          <button class="b1"
+            onclick="
+            UserMove = 'Rock';
+            Computerchoises();
+            UserchoiseRock();
+            dispalyscore();
+            move()
+            "><img class="rock" src="images/rock pic.png" alt=""></button>
+
+          <button class="b2"
+            onclick="
+            UserMove = 'Paper';
+            Computerchoises();
+            UserchoisePaper();
+            dispalyscore();
+            move()
+            "><img class="paper" src="images/paper.png" alt=""></button>
+
+          <button class="b3"
+            onclick="
+            UserMove = 'Scissors';
+            Computerchoises();
+            UserchoiseScissors();
+            dispalyscore();
+            move()
+            "><img class="scissors" src="images/scissors.png" alt=""></button>
+          <br>
+
+            <div class="Js_result">
+              <p> Let's play</p>
+            </div>
+
+            <div class="js_move">
+             <p>move</p>
+            </div>
+
+            <div class="js_score">
+              <p>score></p>
+          
+            </div>
+         
+          <button class="b4"
+            onclick="showScore();
+            ">Score</button>
+
+          <button class="b5"
+            onclick="ResetScore();
+            ">Reset-Score</button>
+      </div>
+
+      <script src="rock-paper-scissors.js"></script>
+
+      </body>     
+    </html>
