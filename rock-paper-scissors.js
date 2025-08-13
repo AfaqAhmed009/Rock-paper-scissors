@@ -4,6 +4,8 @@
   let Score ={win : 0 , lose:0 , draw:0};
 
 
+  // assigning values to the computer
+
   function Computerchoises(){
     compMove= Math.random();
 
@@ -25,11 +27,11 @@
 
   function UserchoiseRock()
   {
-    if (UserMove === 'Rock' && compMove === 'Rock') {
+    if (compMove === 'Rock') {
     result = 'draw';
     console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
     }
-    else if (UserMove === 'Rock' && compMove === 'Paper'){
+    else if (compMove === 'Paper'){
     result = 'lose';
     console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
     }
@@ -42,11 +44,11 @@
 
   function UserchoisePaper()
   {
-    if (UserMove === 'Paper' && compMove === 'Paper'){
+    if ( compMove === 'Paper'){
     result = 'draw';
     console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
     }
-    else if (UserMove === 'Paper' && compMove === 'Scissors'){
+    else if (compMove === 'Scissors'){
     result = 'lose';
     console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
     }
@@ -59,11 +61,11 @@
 
   function UserchoiseScissors()
   {
-    if (UserMove === 'Scissors' && compMove === 'Scissors'){
+    if ( compMove === 'Scissors'){
     result = 'draw';
     console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
     }
-    else if (UserMove === 'Scissors' && compMove === 'Rock'){
+    else if ( compMove === 'Rock'){
     result = 'lose';
     console.log(`you choose ${UserMove} and computer chooses ${compMove} it's a ${result}`)
     }
@@ -147,7 +149,7 @@
     }
 
     // assigning images to compMove variable 
-    
+
     if (compMove === 'Paper') {
     compMove = "images/paper.png";
     } else if (compMove === 'Rock') {
