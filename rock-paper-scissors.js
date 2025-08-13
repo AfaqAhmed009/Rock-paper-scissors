@@ -9,17 +9,17 @@
   function Computerchoises(){
     compMove= Math.random();
 
-    if(compMove <= 0.3){
+    if((compMove <= 0.2) ||(compMove > 0.6 && compMove <=0.7)){
     console.log(compMove);
     compMove = 'Rock';
     console.log(compMove);
     }
-    else if (compMove > 0.3 && compMove <= 0.7){
+    else if ((compMove > 0.2 && compMove <= 0.4) ||( compMove > 0.7 && compMove <=0.8)){
     console.log(compMove);
     compMove = 'Paper';
     console.log(compMove);
     }
-    else{
+    else if ((compMove > 0.4 && compMove <=0.6) ||( compMove > 0.8 && compMove < 1)){
     console.log(compMove);
     compMove = 'Scissors';
     console.log(compMove);
